@@ -20,9 +20,11 @@ int main() {
     //UnitDice();
     //UnitPlayer();
     //UnitColumn();
-    unitBoard();
-    Game gameclass;
+    //unitBoard();
+    //Game gameclass;
+    Game gaming;
     //testGame(gameclass);
+    gaming.start();
     bye();
     return 0;
 }

@@ -15,13 +15,11 @@ void Column::bust() {
 bool Column::move() {
     // Check if any player has a tile in this column
     bool playerHasTile = false;
-    if (TowerMarker == -1) {
-        return false;
-    }
     TowerMarker +=1;
     if (TowerMarker == columnVal[columnNum]) {
         state = Pending;
     }
+    cout << TowerMarker << endl;
     return true;
 }
 
@@ -61,9 +59,12 @@ void Column::stop(Player * player) {
     }
 }
     ostream& Column::print (ostream& columnOutput) {
-        columnOutput << columnNum << " " << colstates[state] << " T";
+        columnOutput << columnNum << " " << colstates[state] << " ";
         for (int k = 0; k < columnVal[columnNum]; k++) {
             columnOutput << "-";
+            if (k == TowerMarker) {
+                columnOutput << "T";
+            }
             for (int j = 0; j < 5; j++) {
                 if (columnMarker[j] == k) {
                     columnOutput << MarkerColorStrings[j];

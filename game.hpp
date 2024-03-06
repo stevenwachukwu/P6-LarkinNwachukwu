@@ -24,5 +24,6 @@ public:
     void getNewPlayer();
     void unitTest();
     void oneTurn(Player* pp);
+    void start();
 };
 #endif

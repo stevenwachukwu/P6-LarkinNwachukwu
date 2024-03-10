@@ -37,7 +37,6 @@ void Board::startTurn(Player* playerMoving) {
 }
 
 bool Board::move(int columnVal) {
-columnVal = 3;
 if (backBone[columnVal]->getState() == 1 || backBone[columnVal]->getState() == 2 ) {
     return false;
      }
@@ -46,6 +45,13 @@ else if (towerCounter == 3) {
     }
 else {
  backBone[columnVal] -> move();
+ for (int k = 0; k < towerCounter; k++) {
+    if (towerDetector[k] == columnVal) {
+        return true;
+    }
+ }
+    towerDetector[towerCounter] = columnVal;
+    towerCounter++;
     return true;
   }
 }

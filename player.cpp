@@ -5,7 +5,7 @@ Player::Player(string playerName, ECcolor color):playerName(playerName) , colorV
 } //the constructor for player
 
 ostream& Player::print(ostream& playerOutput) {
-    playerOutput << "Player Name: " << playerName << endl;
+    playerOutput << "\nPlayer Name: " << playerName << endl;
     playerOutput << "Player's color: " << colorStrings[(int)colorVal] << endl;
     playerOutput << "Player's score: " << score << endl;
     playerOutput << "The scoreboard: " << scoreboard[0,1,2] << endl;

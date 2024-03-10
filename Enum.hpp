@@ -14,6 +14,6 @@ enum class MarkerColor {
     white, orange, yellow, green, blue
 };
 extern const string colorStrings[];
-extern const string MarkerColorStrings[];
+extern const char MarkerColorStrings[];
 
 #endif

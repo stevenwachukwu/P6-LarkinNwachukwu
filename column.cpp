@@ -50,7 +50,7 @@ bool Column::startTower(Player * player) {
 
 void Column::stop(Player * player) {
     // Get the color of the player's tiles
-    string tileColor = MarkerColorStrings[(int)player->color()];
+    string tileColor = colorStrings[(int)player->color()];
     columnMarker [(int)player->color()] = TowerMarker;
     TowerMarker = -1;
     if (state == Pending) {
@@ -60,16 +60,20 @@ void Column::stop(Player * player) {
 }
     ostream& Column::print (ostream& columnOutput) {
         columnOutput << columnNum << " " << colstates[state] << " ";
+        char c;
         for (int k = 0; k < columnVal[columnNum]; k++) {
-            columnOutput << "-";
+             c = '-';
             if (k == TowerMarker) {
-                columnOutput << "T";
+                c = 'T';
             }
+            else {
             for (int j = 0; j < 5; j++) {
                 if (columnMarker[j] == k) {
-                    columnOutput << MarkerColorStrings[j];
+                    c = MarkerColorStrings[j];
                 }
             }
+          }
+            columnOutput << c;
         }
-return columnOutput;
+        return columnOutput;
     }

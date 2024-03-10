@@ -33,6 +33,7 @@ void Game::getNewPlayer() {
         }
     }
 //    player2 = Player(playerName, (ECcolor)index); //calling the Player constructor
+    Play.startTurn(player1);
 }
 
 void Game::unitTest() {
@@ -45,7 +46,6 @@ Board play;
 
 void Game::oneTurn(Player* pp) {
     int gameOptions;
-
     cout << "\nPlease pick one of the following options: " << endl;
     cout << "1. Roll    2. Stop    3. Resign" << endl;
     cin >> gameOptions;
@@ -76,7 +76,6 @@ void Game::Gameroll() {
     cin >> firstVal;
     cin >> secondVal;
     int totalVal = (firstVal + secondVal);
-    Play.move(totalVal);
     Play.print(cout);
     bool Boardval = Play.move(totalVal);
     if (Boardval == true) {
@@ -89,13 +88,13 @@ void Game::Gameroll() {
 
 void Game::Gamestop() {
     Play.stop();
-    Player* wonColumn(int column);
+    cout << Play;
 } //function utilized to run the stop option
 
 void Game::start() {
     int endOptions;
     oneTurn(player1);
-    cout << "Do you want to play again? " << endl;
+    cout << "\nDo you want to play again? " << endl;
     cout << "1. Yes  2. No";
     cin >> endOptions;
     if (endOptions == 1) {
